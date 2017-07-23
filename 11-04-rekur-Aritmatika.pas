@@ -1,0 +1,38 @@
+program fungsi_rekursif4;
+uses crt;
+
+var i,m,p,q:integer;
+
+function suku(a,b,n:integer):longint;
+begin
+if n=1 then suku:=a
+else suku:=b+suku(a,b,n-1);
+end;
+
+function jumlah(a,b,n:integer):real;
+begin
+if n = 1 then jumlah := a else
+jumlah:=suku(a,b,n)+jumlah(a,b,n-1);
+end;
+
+begin
+clrscr;
+write('Masukkan nilai awal deret aritmatika : ');
+readln(p);
+write('Masukkan beda antar suku : ');
+readln(q);
+write('Masukkan banyak suku : ');
+readln(m);
+gotoxy(5,5);writeln(' i |' );
+gotoxy(15,5);writeln(' suku ke ');
+writeln('----------------------------');
+for i:= 1 to m do
+begin
+gotoxy(5,6+i);writeln(i:4,'       | ');
+gotoxy(15,6+i);writeln(suku(p,q,i):10);
+end;
+writeln('----------------------------');
+gotoxy(15,8+m);writeln(jumlah(p,q,m):10:0);
+readln;
+end.
+

@@ -1,0 +1,14 @@
+program rekursif0;
+uses crt;
+
+PROCEDURE TULIS_1(banyak : integer;kata : string);
+begin
+if banyak > 1 then TULIS_1(banyak-1,kata);
+writeln('  ',kata, banyak:5);
+end;
+
+begin
+clrscr;
+TULIS_1(6,'Cetakan ke ');
+readln;
+end.
